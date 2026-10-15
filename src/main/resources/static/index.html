@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f8fa">
+    <meta name="description" content="Ask questions about your local knowledge base.">
+    <title>Knowledge Assistant</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar" aria-label="Application">
+            <a class="brand" href="/" aria-label="Knowledge Assistant home">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M5 5.75A2.75 2.75 0 0 1 7.75 3H19v15H7.75A2.75 2.75 0 0 0 5 20.75v-15Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                        <path d="M5 6v14.75A2.25 2.25 0 0 1 7.25 18H19M9 7h6m-6 4h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                    </svg>
+                </span>
+                <span>fieldnotes<span class="brand-period">.</span></span>
+            </a>
+
+            <div class="sidebar-label">WORKSPACE</div>
+            <button class="workspace-card" type="button" aria-current="page">
+                <span class="workspace-icon" aria-hidden="true">K</span>
+                <span class="workspace-copy">
+                    <strong>Knowledge base</strong>
+                    <span>Local documents</span>
+                </span>
+                <span class="workspace-status" aria-label="Ready"></span>
+            </button>
+
+            <div class="sidebar-bottom">
+                <div class="privacy-note">
+                    <span class="privacy-icon" aria-hidden="true">
+                        <svg viewBox="0 0 20 20" fill="none"><path d="M10 2.5 3.75 5v4.17c0 4.08 2.67 6.87 6.25 8.33 3.58-1.46 6.25-4.25 6.25-8.33V5L10 2.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="m7.5 9.75 1.67 1.67 3.75-3.75" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    <span><strong>Your workspace</strong><br>Questions are answered from your local knowledge.</span>
+                </div>
+                <div class="sidebar-caption">A quiet place to find answers.</div>
+            </div>
+        </aside>
+
+        <main class="main-panel">
+            <header class="topbar">
+                <div class="breadcrumb"><span>Workspace</span><span class="breadcrumb-slash">/</span><strong>Ask</strong></div>
+                <div class="topbar-status"><span class="status-dot"></span> Assistant ready</div>
+            </header>
+
+            <section class="chat-layout" aria-label="Knowledge assistant chat">
+                <div class="conversation" id="conversation" aria-live="polite" aria-relevant="additions">
+                    <div class="welcome" id="welcome">
+                        <div class="welcome-eyebrow"><span class="sparkle" aria-hidden="true">✳</span> YOUR KNOWLEDGE, IN CONTEXT</div>
+                        <h1>Good questions<br>start <span>somewhere.</span></h1>
+                        <p class="welcome-copy">Ask about your notes, guides, and documents.<br>I’ll look through your local knowledge and help you find your way.</p>
+
+                        <div class="suggestion-heading">A FEW PLACES TO START</div>
+                        <div class="suggestions">
+                            <button class="suggestion" type="button" data-prompt="What does this project do?">
+                                <span class="suggestion-icon icon-lilac" aria-hidden="true">
+                                    <svg viewBox="0 0 20 20" fill="none"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H17v11.5a2.5 2.5 0 0 0-2.5-2.5H3V5.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M3 12v.5A2.5 2.5 0 0 0 5.5 15H17M6.5 6.5h7m-7 3h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                                </span>
+                                <span><strong>Get the big picture</strong><small>What does this project do?</small></span>
+                                <span class="suggestion-arrow" aria-hidden="true">↗</span>
+                            </button>
+                            <button class="suggestion" type="button" data-prompt="What should I know to get started?">
+                                <span class="suggestion-icon icon-peach" aria-hidden="true">
+                                    <svg viewBox="0 0 20 20" fill="none"><path d="M10 2.5 11.9 8.1 17.5 10l-5.6 1.9L10 17.5l-1.9-5.6L2.5 10l5.6-1.9L10 2.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="m15.5 2 .7 2.3 2.3.7-2.3.7-.7 2.3-.7-2.3-2.3-.7 2.3-.7.7-2.3Z" fill="currentColor"/></svg>
+                                </span>
+                                <span><strong>Find your footing</strong><small>What should I know to get started?</small></span>
+                                <span class="suggestion-arrow" aria-hidden="true">↗</span>
+                            </button>
+                            <button class="suggestion" type="button" data-prompt="How do I run this application?">
+                                <span class="suggestion-icon icon-mint" aria-hidden="true">
+                                    <svg viewBox="0 0 20 20" fill="none"><path d="M3.5 5.5A2.5 2.5 0 0 1 6 3h8a2.5 2.5 0 0 1 2.5 2.5v9A2.5 2.5 0 0 1 14 17H6a2.5 2.5 0 0 1-2.5-2.5v-9Z" stroke="currentColor" stroke-width="1.4"/><path d="m7 8 2 2-2 2m4 0h2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </span>
+                                <span><strong>Get things moving</strong><small>How do I run this application?</small></span>
+                                <span class="suggestion-arrow" aria-hidden="true">↗</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="message-list" id="message-list"></div>
+                </div>
+
+                <div class="composer-area">
+                    <form class="composer" id="chat-form">
+                        <label class="visually-hidden" for="question">Ask a question about your knowledge base</label>
+                        <textarea id="question" name="question" rows="1" maxlength="2000" placeholder="Ask anything about your knowledge..." required></textarea>
+                        <div class="composer-footer">
+                            <span class="composer-hint"><kbd>Enter</kbd> to send <span class="hint-divider">·</span> <kbd>Shift + Enter</kbd> for a new line</span>
+                            <button class="send-button" id="send-button" type="submit" aria-label="Send question">
+                                <span>Ask</span>
+                                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </button>
+                        </div>
+                    </form>
+                    <p class="disclaimer">Answers are generated from your local documents and may need a second look.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
