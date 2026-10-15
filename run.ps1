@@ -81,5 +81,6 @@ if ($port -ne $originalPort) {
 $env:PORT = [string]$port
 $env:JAVA_HOME = $javaHome
 $env:Path = "$(Join-Path $javaHome 'bin');$env:Path"
+Write-Host "Open the app at: http://localhost:$port"
 & mvn spring-boot:run
 exit $LASTEXITCODE

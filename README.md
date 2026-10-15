@@ -25,7 +25,9 @@ From PowerShell, start the app from the project root:
 .\run.bat
 ```
 
-The API binds to `127.0.0.1` on port `18080` with the settings above (default `8080`).
+The launcher prints the app URL in the console. It binds to `127.0.0.1` on port `18080`
+with the settings above (default `8080`); if that port is already in use, it selects and
+prints the next available port.
 Add `.md` or `.txt` files under `knowledge/`; they are loaded at startup. You can also set
 `KNOWLEDGE_DIRECTORY` to use another directory and `OPENROUTER_MODEL` to choose a different
 OpenRouter model.
